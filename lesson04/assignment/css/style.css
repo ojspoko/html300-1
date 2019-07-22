@@ -2,12 +2,50 @@ body, html {
   height: 100%;
   margin: 0; }
 
-.background {
-  background-image: url("img/austria.jpg");
-  height: 50%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover; }
+.travel-img {
+  border-radius: 50%;
+  max-width: 50%;
+  margin: 5% auto auto auto;
+  display: block;
+  cursor: pointer; }
 
-.main {
-  font-style: italic; }
+.img-text {
+  position: absolute;
+  visibility: hidden;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #6100A1;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-transform: uppercase; }
+
+.circle {
+  background-color: transparent;
+  width: 60rem;
+  height: 30rem;
+  perspective: 62rem; }
+
+.flip-img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d; }
+
+.flip-img:hover {
+  transform: rotateY(180deg); }
+
+.flip-img-front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden; }
+
+.flip-image-back {
+  background-color: #555;
+  color: #6100A1;
+  transform: rotateY(180deg); }
