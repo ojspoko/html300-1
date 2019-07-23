@@ -1,74 +1,98 @@
-body, html {
+*  {
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino;
+}
+/* source code - http://urbaninfluence.com/2015/05/make-a-background-image-slider-with-css-keyframes/ */
+/* Creates full page banner  */
+.banner{
+ display: table;
+ width: 100%;
+ margin: 0 auto;
+ text-align: center;
+
+ /* vh = Full viewport Height */
+ height: 100vh;
+ /* Create an Overlay */
+ &:after{
+  position: absolute;
+  top: 0;
+  left: 0;
   height: 100%;
-  margin: 0;
+  width: 100%;
+  z-index: 0;
+ }
+
+ /* Vertically centers, z-index overlaps elements */
+ .v-center{
+  display: table-cell;
+  vertical-align: middle;
+  position: relative;
+  z-index: 4;
+  padding: 0 5%;
+ }
 }
 
-// mixin to apply circle img format to any images on page
-  @mixin circle {
-    border-radius: 50%;
-    max-width: 60%;
-    margin: 5% auto auto auto;
-    max-height: 50%;
-  }
+/* Use of mixin and variable */
+@mixin banner-text {
+  color: $text;
+}
 
-  .main {
-    margin: auto;
-    width: 50%;
-  }
+h1 {
+  @include banner-text;
+  font-size: 3rem;
+  font-weight: bolder;
+}
 
-  .img-text {
-      font-size: 2rem;
-      font-weight: 700;
-      color: $text;
-      text-transform: uppercase;
-  }
-
-// include uses mixin
-  .travel-img-left, .travel-img-right {
-    @include circle;
-  }
-
-// linear makes transition smooth
-// delay makes animation start 1s after page load
-.slide-left {
-  animation-duration: 2s;
-  animation-name: slidein-left;
-  animation-delay: 1s;
-  animation-timing-function: linear;
+/* transform text on hover - rotates div, upside down */
+.v-center:hover {
+  transform: rotate(180deg);
 }
 
 
-// inspired by - https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations
-// slides image from the right to left, scale grows the image then shrinks to normal size
-@keyframes slidein-left {
-  0% {
-    margin-left: 100%;
-    transform: scale(8);
-  }
-  50% {
-    margin-left: 50%;
-    transform: scale(4);
-  }
-  100% {
-    margin-left: 0%;
-  }
+.txt {
+  @include banner-text;
+  font-size: 1.5rem;
 }
 
-// Adding additional images with similar animation to have them come from both directions
-//.slide-right {
-  //animation-duration: 5s;
-  //animation-name: slidein-right;
-  //animation-timing-function: ease-in-out;
-//}
 
-//@keyframes slidein-right {
-  //from {
-    //margin-right: 100%;
-    //width: 300%;
-  //}
+/* Keyframes rule to specify fade animation  */
+@keyframes fade-out {
+ 33% {
+  opacity: 1
+ }
+ 66% {
+ opacity: 0
+ }
+}
 
-  //to {
-    //margin-right: 50%;
-    //width: 100%;
-  //}
-//}
+/* list of items in keyframes slider are assigned background img
+layers revealed in sequence by animating opacity */
+ul.kf-slider {
+ li {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position:	50%;
+  z-index: 0;
+  opacity: 0;
+  /* shorthand: animation name, total time, iteration count */
+  animation: fade-out 12s infinite both;
+  /* 1st Image */
+  background-image: url(../img/plane.jpg);
+ }
+ li:nth-child(2) {
+  background-image: url(../img/girona.jpg);
+  animation-delay: (3s);
+ }
+ /* incremental increase in animation delay to show imgs in sequence*/
+ li:nth-child(3){
+  background-image: url(../img/scotland.jpg);
+  animation-delay: (6s);
+ }
+ li:nth-child(4){
+  background-image: url(../img/austria.jpg);
+  animation-delay: (9s);
+ }
+}
