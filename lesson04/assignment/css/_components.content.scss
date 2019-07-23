@@ -37,6 +37,8 @@ body, html {
   animation-timing-function: linear;
 }
 
+
+// inspired by - https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations
 // slides image from the right to left, scale grows the image then shrinks to normal size
 @keyframes slidein-left {
   0% {
