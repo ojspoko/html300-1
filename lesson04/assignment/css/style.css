@@ -2,48 +2,34 @@ body, html {
   height: 100%;
   margin: 0; }
 
-.travel-img {
+.main {
+  margin: auto;
+  width: 50%; }
+
+.img-text {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #6100A1;
+  text-transform: uppercase; }
+
+.travel-img-left, .travel-img-right {
   border-radius: 50%;
-  max-width: 50%;
+  max-width: 60%;
   margin: 5% auto auto auto;
-  display: block;
-  cursor: pointer;
-  max-height: 50%;
-  position: absolute; }
+  max-height: 50%; }
 
-.back-flip {
-  border-radius: 50%;
-  max-width: 50%;
-  margin: 5% auto auto auto;
-  display: block;
-  cursor: pointer;
-  max-height: 50%;
-  position: absolute;
-  display: none;
-  -webkit-transform-style: preserve-3d;
-  -webkit-backface-visibility: hidden; }
+.slide-left {
+  animation-duration: 2s;
+  animation-name: slidein-left;
+  animation-delay: 1s;
+  animation-timing-function: linear; }
 
-.flip-img:hover {
-  display: block;
-  animation-name: flip-img;
-  animation-duration: 750ms;
-  animation-timing-function: linear;
-  animation-iteration-count: 2;
-  animation-direction: normal;
-  animation-delay: 20s; }
-
-@keyframes flip-img {
+@keyframes slidein-left {
   0% {
-    -webkit-transform: rotateY(0deg); }
-  24% {
-    background-position-y: 0px; }
-  25% {
-    background-position-y: 204px; }
+    margin-left: 100%;
+    transform: scale(8); }
   50% {
-    -webkit-transform: rotateY(180deg); }
-  75% {
-    background-position-y: 204px; }
-  76% {
-    background-position-y: 0px; }
+    margin-left: 50%;
+    transform: scale(4); }
   100% {
-    -webkit-transform: rotateY(360deg); } }
+    margin-left: 0%; } }

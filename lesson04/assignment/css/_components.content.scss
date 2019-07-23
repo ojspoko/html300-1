@@ -3,43 +3,70 @@ body, html {
   margin: 0;
 }
 
+// mixin to apply circle img format to any images on page
   @mixin circle {
     border-radius: 50%;
-    max-width: 50%;
+    max-width: 60%;
     margin: 5% auto auto auto;
-    display: block;
-    cursor: pointer;
     max-height: 50%;
-    position: absolute;
   }
 
-  .travel-img {
+  .main {
+    margin: auto;
+    width: 50%;
+  }
+
+  .img-text {
+      font-size: 2rem;
+      font-weight: 700;
+      color: $text;
+      text-transform: uppercase;
+  }
+
+// include uses mixin
+  .travel-img-left, .travel-img-right {
     @include circle;
   }
 
-  .back-flip {
-    @include circle;
-    display: none;
-    -webkit-transform-style: preserve-3d;
-    -webkit-backface-visibility: hidden;
-  }
+// linear makes transition smooth
+// delay makes animation start 1s after page load
+.slide-left {
+  animation-duration: 2s;
+  animation-name: slidein-left;
+  animation-delay: 1s;
+  animation-timing-function: linear;
+}
 
-  .flip-img:hover {
-      display: block;
-      animation-name: flip-img;
-      animation-duration: 750ms;
-      animation-timing-function: linear;
-      animation-iteration-count: 2;
-      animation-direction: normal;
-      animation-delay: 20s;
+// slides image from the right to left, scale grows the image then shrinks to normal size
+@keyframes slidein-left {
+  0% {
+    margin-left: 100%;
+    transform: scale(8);
   }
+  50% {
+    margin-left: 50%;
+    transform: scale(4);
+  }
+  100% {
+    margin-left: 0%;
+  }
+}
 
-  @keyframes flip-img {
-    0% {-webkit-transform: rotateY(0deg);}
-    24% {background-position-y: 0px;}
-    25% {background-position-y: 204px;}
-    50% {-webkit-transform: rotateY(180deg);}
-    75% {background-position-y: 204px;}
-    76% {background-position-y: 0px; }
-    100% {-webkit-transform: rotateY(360deg);}
-  }
+// Adding additional images with similar animation to have them come from both directions
+//.slide-right {
+  //animation-duration: 5s;
+  //animation-name: slidein-right;
+  //animation-timing-function: ease-in-out;
+//}
+
+//@keyframes slidein-right {
+  //from {
+    //margin-right: 100%;
+    //width: 300%;
+  //}
+
+  //to {
+    //margin-right: 50%;
+    //width: 100%;
+  //}
+//}
