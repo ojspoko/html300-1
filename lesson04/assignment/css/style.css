@@ -1,0 +1,76 @@
+* {
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino; }
+
+/* source code - http://urbaninfluence.com/2015/05/make-a-background-image-slider-with-css-keyframes/ */
+/* Creates full page banner  */
+.banner {
+  display: table;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  /* vh = Full viewport Height */
+  height: 100vh;
+  /* Create an Overlay */
+  /* Vertically centers, z-index overlaps elements */ }
+  .banner:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 0; }
+  .banner .v-center {
+    display: table-cell;
+    vertical-align: middle;
+    position: relative;
+    z-index: 4;
+    padding: 0 5%; }
+
+/* Use of mixin and variable */
+h1 {
+  color: #6100A2;
+  font-size: 3rem;
+  font-weight: bolder; }
+
+/* transform text on hover - rotates div, upside down */
+.v-center:hover {
+  transform: rotate(180deg); }
+
+.txt {
+  color: #6100A2;
+  font-size: 1.5rem; }
+
+/* Keyframes rule to specify fade animation  */
+@keyframes fade-out {
+  33% {
+    opacity: 1; }
+  66% {
+    opacity: 0; } }
+
+/* list of items in keyframes slider are assigned background img
+layers revealed in sequence by animating opacity */
+ul.kf-slider {
+  /* incremental increase in animation delay to show imgs in sequence*/ }
+  ul.kf-slider li {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    z-index: 0;
+    opacity: 0;
+    /* shorthand: animation name, total time, iteration count */
+    animation: fade-out 12s infinite both;
+    /* 1st Image */
+    background-image: url(../img/plane.jpg); }
+  ul.kf-slider li:nth-child(2) {
+    background-image: url(../img/girona.jpg);
+    animation-delay: 3s; }
+  ul.kf-slider li:nth-child(3) {
+    background-image: url(../img/scotland.jpg);
+    animation-delay: 6s; }
+  ul.kf-slider li:nth-child(4) {
+    background-image: url(../img/austria.jpg);
+    animation-delay: 9s; }
