@@ -4,12 +4,32 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <link rel="stylesheet" href="css/style.css" />
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
         <title>Assignment 06 - Bootstrap 4</title>
     </head>
     <body>
+    <nav>
+    <!-- horizontally aligned nav with flexbox utilities -->
+        <ul class="nav justify-content-center bg-light">
+            <li class="nav-item p-4">
+                <a class="nav-link active text-info" href="#">Home</a>
+            </li>     
+            <li class="nav-item p-4">
+                <a class="nav-link text-info" href="photos.html">Photos</a>
+             </li>  
+            <li class="nav-item p-4">
+                <a class="nav-link text-info" href="#">Blog</a>
+             </li>  
+            <li class="nav-item p-4">
+                <a class="nav-link text-info" href="about.html">About</a>
+            </li> 
+        </ul> 
+    </nav>
         <main class="main">
-          
+    <!-- image responsive and centered -->
+          <img src="../images/airport.jpg" class="img-fluid mx-auto d-block" alt="girl at aiprort">
         </main>
     </body>
 </html>
