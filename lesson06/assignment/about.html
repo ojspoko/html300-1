@@ -5,39 +5,53 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <!-- JS -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <title>Assignment 06 - Bootstrap 4</title>
 
     </head>
 <body>
-        <nav>
-            <!-- horizontally aligned nav with flexbox utilities -->
-            <ul class="nav justify-content-center bg-light">
-                <li class="nav-item p-4">
-                     <a class="nav-link active text-info" href="index.html">Home</a>
-                </li>     
-                <li class="nav-item p-4">
-                     <a class="nav-link text-info" href="photos.html">Photos</a>
-                </li>  
-                <li class="nav-item p-4">
-                     <a class="nav-link text-info" href="blog.html">Blog</a>
-                </li>  
-                <li class="nav-item p-4">
-                    <a class="nav-link text-info" href="about.html">About</a>
-                </li> 
-                </ul> 
-            </nav>
+       <!-- navbar w/ responsive collapsing  -->
+       <nav class="navbar navbar-expand-lg navbar-light bg-info justify-content-between">
+          <a class="navbar-brand" href="#">Olivia, Off the Grid</a>
+          <!-- moves nav content to far left -->
+          <div class="justify-content-end">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href=index.html>Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">About</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Travel
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="blog.html">Blog</a>
+                  <a class="dropdown-item" href="photos.html">Photos</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+  </nav>
 
+  <section>
+    <!-- centers header, adds padding to top and bottom -->
+    <h1 class="mx-auto py-4" style="width: 500px;">Frequently Asked Questions</h1>
+  </section>
+
+    <!-- accordion wrapper around card components enables acccordion -->
         <div id="accordion">
                 <div class="card">
                   <div class="card-header" id="headingOne">
                     <h5 class="mb-0">
+                    <!-- show content of first card by default with aria expanded true -->
                       <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        About Olivia
+                        1. What's your story?
                       </button>
                     </h5>
                   </div>
@@ -52,7 +66,7 @@
                   <div class="card-header" id="headingTwo">
                     <h5 class="mb-0">
                       <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        Collapsible Group Item #2
+                        2. What recommendations do you have for traveling on a budget?
                       </button>
                     </h5>
                   </div>
@@ -66,7 +80,7 @@
                   <div class="card-header" id="headingThree">
                     <h5 class="mb-0">
                       <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        Collapsible Group Item #3
+                        3. What was your favorite travel destination so far?
                       </button>
                     </h5>
                   </div>
